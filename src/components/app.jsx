@@ -1,9 +1,27 @@
 import React from 'react';
+// Importamos componentes
 import NavBar from './NavBar/NavBar';
+import Plantilla_1 from './Plantilla_1/Plantilla_1';
+import Plantilla_1_carousel from './Plantilla_1/Plantilla_1_carousel';
+import Plantilla_2 from './Plantilla_2/Plantilla_2';
+import Plantilla_3 from './Plantilla_3/Plantilla_3';
+// Importamos etiquetas para la navegacón
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
     return (
-        <NavBar />
+        <>
+            <NavBar />
+            <Routes>
+                <Route path='/' element={
+                    <main>
+                        <Plantilla_1 />
+                        <Plantilla_1_carousel />
+                    </main>} />
+                <Route path='/P2' element={<Plantilla_2 />} />
+                <Route path='/P3' element={<Plantilla_3 />} />
+            </Routes>
+        </>
     );
 };
 
