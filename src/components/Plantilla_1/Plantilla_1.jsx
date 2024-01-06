@@ -1,8 +1,8 @@
 import React from 'react';
 // Importamos la imagen
-import imagenTest_1 from '../../Imagenes/Plantilla1_test.jpg';
+import imagenTest_1 from '../../img/Plantilla1_test.jpg';
 // Importamos estilos
-import '../../estilos/main_Plantilla1.css';
+import './styles/main_Plantilla1.css';
 
 const Plantilla_1 = () => {
     return (
