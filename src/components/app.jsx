@@ -14,10 +14,10 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path='/' element={
-                    <main>
+                    <div>
                         <Plantilla_1 />
                         <Plantilla_1_carousel />
-                    </main>} />
+                    </div>} />
                 <Route path='/P2' element={<Plantilla_2 />} />
                 <Route path='/P3' element={<Plantilla_3 />} />
             </Routes>
