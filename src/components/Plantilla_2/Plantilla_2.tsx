@@ -8,7 +8,7 @@ import image5 from "./../../img/pexels-cedric-fauntleroy-4269503.jpg";
 import image6 from "./../../img/pexels-cedric-fauntleroy-4269690.jpg";
 import image7 from "./../../img/pexels-mali-maeder-69686.jpg";
 
-const Plantilla_2 = () => {
+const Plantilla_2 : React.FC  = () => {
     return (
         <div className="container-fluid p-0">
             {/* contactanos comienzo */}
@@ -182,7 +182,7 @@ const Plantilla_2 = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="d-flex justify-content-center">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.268050972739!2d-103.29055762439123!3d20.699336999010846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b124fd689673%3A0x66c00c5b635603eb!2sReparaci%C3%B3n%20y%20Venta%20de%20equipos%20dentales%20NDG!5e0!3m2!1sen!2smx!4v1704580409444!5m2!1sen!2smx" width="600" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.268050972739!2d-103.29055762439123!3d20.699336999010846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b124fd689673%3A0x66c00c5b635603eb!2sReparaci%C3%B3n%20y%20Venta%20de%20equipos%20dentales%20NDG!5e0!3m2!1sen!2smx!4v1704580409444!5m2!1sen!2smx" width="600" height="450" style={{ border: 0 }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </section>

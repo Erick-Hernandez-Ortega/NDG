@@ -2,7 +2,7 @@ import React from 'react';
 // Importamos el Link para la navegación
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar: React.FC  = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div className="container-fluid">
