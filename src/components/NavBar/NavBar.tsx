@@ -1,9 +1,12 @@
 import React from 'react';
-// Importamos el Link para la navegación
 import { Link } from "react-router-dom";
+// @ts-ignore
 import facebook from "../../icons/facebook.ico"
+// @ts-ignore
 import x from "../../icons/x.ico"
+// @ts-ignore
 import instagram from "../../icons/instagram.ico"
+// @ts-ignore
 import whatsapp from "../../icons/whatsapp.ico"
 
 const NavBar: React.FC = () => {
