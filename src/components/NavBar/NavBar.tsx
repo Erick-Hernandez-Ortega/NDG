@@ -6,6 +6,8 @@ import facebook from "../../icons/facebook.ico"
 import instagram from "../../icons/instagram.ico"
 // @ts-ignore
 import whatsapp from "../../icons/whatsapp.ico"
+// @ts-ignore
+import telefono from "../../icons/telefono.ico"
 
 const NavBar: React.FC = () => {
     return (
@@ -29,6 +31,11 @@ const NavBar: React.FC = () => {
                     <li className='ms-3'>
                         <a href="#" target='_blank'>
                             <img src={whatsapp} width={35} alt="" />
+                        </a>
+                    </li>
+                    <li className='ms-3'>
+                        <a href="tel:3325390596" target='_blank'>
+                            <img src={telefono} width={35} alt="" />
                         </a>
                     </li>
                 </ul>
