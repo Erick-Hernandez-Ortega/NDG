@@ -19,9 +19,6 @@ const NavBar: React.FC  = () => {
                             <Link to={"/P2"} className="nav-link active">Plantilla 2</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/P3"} className="nav-link active">Plantilla 3</Link>
-                        </li>
-                        <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Contacto</a>
                         </li>
                         <li className="nav-item dropdown">
