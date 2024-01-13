@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 // @ts-ignore
 import facebook from "../../icons/facebook.ico"
 // @ts-ignore
-import x from "../../icons/x.ico"
-// @ts-ignore
 import instagram from "../../icons/instagram.ico"
 // @ts-ignore
 import whatsapp from "../../icons/whatsapp.ico"
@@ -26,11 +24,6 @@ const NavBar: React.FC = () => {
                     <li className='ms-3'>
                         <a href="https://www.instagram.com/ndg20_21/?igsh=NGk3czZkOWFsZXJx" target='_blank'>
                             <img src={instagram} width={35} alt="" />
-                        </a>
-                    </li>
-                    <li className='ms-3'>
-                        <a href="#" target='_blank'>
-                            <img src={x} width={35} alt="" />
                         </a>
                     </li>
                     <li className='ms-3'>

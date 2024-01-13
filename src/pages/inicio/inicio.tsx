@@ -1,12 +1,20 @@
 import React from 'react';
 import "./styles/main.css";
+// @ts-ignore
 import image1 from "../../img/img_c_63e2bfcac4b25.jpg";
+// @ts-ignore
 import image2 from "./../../img/pexels-daniel-frank-305568.jpg";
+// @ts-ignore
 import image3 from "./../../img/pexels-daniel-frank-305566.jpg";
+// @ts-ignore
 import image4 from "./../../img/pexels-daniel-frank-305567.jpg";
+// @ts-ignore
 import image5 from "./../../img/pexels-cedric-fauntleroy-4269503.jpg";
+// @ts-ignore
 import image6 from "./../../img/pexels-cedric-fauntleroy-4269690.jpg";
+// @ts-ignore
 import image7 from "./../../img/pexels-mali-maeder-69686.jpg";
+import Footer from '../../components/Footer/footerComponent.tsx';
 
 const Plantilla_2 : React.FC  = () => {
     return (
@@ -269,12 +277,8 @@ const Plantilla_2 : React.FC  = () => {
                 </div>
             </section>
             {/* form final */}
-
-            <footer>
-                <p className='display-1'>FOOTER CHIDO</p>
-            </footer>
+            <Footer/>
         </div>
-
     );
 };
 
