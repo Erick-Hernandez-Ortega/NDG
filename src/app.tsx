@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
-import NavBar from './NavBar/NavBar.tsx'
-import Plantilla_1 from './Plantilla_1/Plantilla_1';
-import Plantilla_1_carousel from './Plantilla_1/Plantilla_1_carousel';
-import Plantilla_2 from './Plantilla_2/Plantilla_2.tsx';
+import NavBar from './components/NavBar/NavBar.tsx'
+import Plantilla_1 from './components/Plantilla_1/Plantilla_1.jsx';
+import Plantilla_1_carousel from './components/Plantilla_1/Plantilla_1_carousel.jsx';
+import Plantilla_2 from './pages/inicio/inicio.tsx';
 import { Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
@@ -19,7 +19,7 @@ const App: React.FC = () => {
             </div>
           }
         />
-        <Route path="/P2" element={<Plantilla_2 />} />
+        <Route path="/inicio" element={<Plantilla_2 />} />
       </Routes>
     </>
   );
