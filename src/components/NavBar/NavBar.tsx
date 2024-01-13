@@ -19,22 +19,22 @@ const NavBar: React.FC = () => {
 
                 <ul className='nav col-md-4 justify-content-end list-unstyled d-flex'>
                     <li className='ms-3'>
-                        <a href="#">
+                        <a href="https://www.facebook.com/Reparacion.NDG13?mibextid=ZbWKwL" target='_blank'>
                             <img src={facebook} width={35} alt="" />
                         </a>
                     </li>
                     <li className='ms-3'>
-                        <a href="#">
+                        <a href="https://www.instagram.com/ndg20_21/?igsh=NGk3czZkOWFsZXJx" target='_blank'>
                             <img src={instagram} width={35} alt="" />
                         </a>
                     </li>
                     <li className='ms-3'>
-                        <a href="#">
+                        <a href="#" target='_blank'>
                             <img src={x} width={35} alt="" />
                         </a>
                     </li>
                     <li className='ms-3'>
-                        <a href="#">
+                        <a href="#" target='_blank'>
                             <img src={whatsapp} width={35} alt="" />
                         </a>
                     </li>
