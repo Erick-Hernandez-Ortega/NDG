@@ -1,22 +1,65 @@
 import React from 'react';
 import "./styles/main.css";
+import Footer from '../../components/Footer/footerComponent.tsx';
+// Imagenes
 // @ts-ignore
 import image1 from "../../img/img_c_63e2bfcac4b25.jpg";
 // @ts-ignore
-import image2 from "./../../img/pexels-daniel-frank-305568.jpg";
+import image2 from "./../../img/producto 1.jpg";
 // @ts-ignore
-import image3 from "./../../img/pexels-daniel-frank-305566.jpg";
+import image3 from "./../../img/producto 2.jpg";
 // @ts-ignore
-import image4 from "./../../img/pexels-daniel-frank-305567.jpg";
+import image4 from "./../../img/producto 3.jpg";
+// Galeria
 // @ts-ignore
-import image5 from "./../../img/pexels-cedric-fauntleroy-4269503.jpg";
+import galeria1 from './../../img/galeria/galeria 1.jpg';
 // @ts-ignore
-import image6 from "./../../img/pexels-cedric-fauntleroy-4269690.jpg";
+import galeria2 from './../../img/galeria/galeria 2.jpg';
 // @ts-ignore
-import image7 from "./../../img/pexels-mali-maeder-69686.jpg";
-import Footer from '../../components/Footer/footerComponent.tsx';
+import galeria3 from './../../img/galeria/galeria 3.jpg';
+// @ts-ignore
+import galeria4 from './../../img/galeria/galeria 4.jpg';
+// @ts-ignore
+import galeria5 from './../../img/galeria/galeria 5.jpg';
+// @ts-ignore
+import galeria6 from './../../img/galeria/galeria 6.jpg';
+// @ts-ignore
+import galeria7 from './../../img/galeria/galeria 7.jpg';
+// @ts-ignore
+import galeria8 from './../../img/galeria/galeria 8.jpg';
+// @ts-ignore
+import galeria9 from './../../img/galeria/galeria 9.jpg';
+// @ts-ignore
+import galeria10 from './../../img/galeria/galeria 10.jpg';
+// @ts-ignore
+import galeria11 from './../../img/galeria/galeria 11.jpg';
+// @ts-ignore
+import galeria12 from './../../img/galeria/galeria 12.jpg';
+// @ts-ignore
+import galeria13 from './../../img/galeria/galeria 13.jpg';
+// @ts-ignore
+import galeria14 from './../../img/galeria/galeria 14.jpg';
+// @ts-ignore
+import galeria15 from './../../img/galeria/galeria 15.jpg';
 
-const Plantilla_2 : React.FC  = () => {
+const Plantilla_2: React.FC = () => {
+    const imagenes: Array<any> = [
+        galeria2,
+        galeria3,
+        galeria4,
+        galeria5,
+        galeria6,
+        galeria7,
+        galeria8,
+        galeria9,
+        galeria10,
+        galeria11,
+        galeria12,
+        galeria13,
+        galeria14,
+        galeria15
+    ];
+
     return (
         <div className="container-fluid p-0">
             {/* contactanos comienzo */}
@@ -34,7 +77,7 @@ const Plantilla_2 : React.FC  = () => {
             {/* sobre nosotros comienxo */}
             <section className='w-100 row'>
                 <div className="col-lg-6">
-                    <div className="about-us-padding">
+                    <div className="p-5">
                         <h2 className='display-6 fw-bold mb-3'>Sobre nosotros</h2>
                         <p className='lead'>
                             Bienvenidos a NDG, su aliado confiable en el mundo de la salud dental en Jalisco, México.
@@ -46,8 +89,8 @@ const Plantilla_2 : React.FC  = () => {
                     </div>
                 </div>
                 <div className="col-lg-6">
-                    <div className="about-us-padding">
-                        <div className="w-100">
+                    <div className="p-5">
+                        <div className="w-100 d-flex justify-content-center align-items-center">
                             <img src={image1} className='w-100 rounded-4' alt="..." />
                         </div>
                     </div>
@@ -56,14 +99,14 @@ const Plantilla_2 : React.FC  = () => {
             {/* sobre nosotros final */}
 
             {/* servicios empieza */}
-            <section className='w-100 p-3'>
+            <section className='w-100 p-3' style={{ background: "#ECECEC" }}>
                 <h2 className='display-6 fw-bold mb-3 text-center'>Servicios</h2>
 
                 <div className="row mb-3">
                     <div className="col-lg-4">
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="card">
-                                <img src={image2} className="card-img" alt="..." />
+                                <img src={image2} className="card-img" width={300} height={320} alt="..." />
                                 <div className="card-img-overlay">
                                     <h4 className="text-dark text-center fw-bold text-shadow">Reparación</h4>
                                 </div>
@@ -73,7 +116,7 @@ const Plantilla_2 : React.FC  = () => {
                     <div className="col-lg-4">
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="card">
-                                <img src={image3} className="card-img" alt="..." />
+                                <img src={image3} className="card-img" width={300} height={320} alt="..." />
                                 <div className="card-img-overlay">
                                     <h4 className="text-dark text-center fw-bold text-shadow">Mantenimiento</h4>
                                 </div>
@@ -83,40 +126,7 @@ const Plantilla_2 : React.FC  = () => {
                     <div className="col-lg-4">
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="card">
-                                <img src={image4} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Venta</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row mb-3">
-                    <div className="col-lg-4">
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image2} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Reparación</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-4">
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image3} className="card-img" alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Mantenimiento</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-4">
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image4} className="card-img" alt="..." />
+                                <img src={image4} className="card-img" width={300} height={320} alt="..." />
                                 <div className="card-img-overlay">
                                     <h4 className="text-dark text-center fw-bold text-shadow">Venta</h4>
                                 </div>
@@ -128,15 +138,15 @@ const Plantilla_2 : React.FC  = () => {
             {/* servicios final */}
 
             {/* opinion empieza */}
-            <section className='w-100 p-3 mb-3'>
+            <section className='w-100 p-5 mb-3'>
                 <div className="d-flex justify-content-center align-content-center">
                     <figure className='w-75'>
                         <blockquote className="blockquote">
                             <p className='display-6'>
-                                Estoy muy agradecida con NDG por su servicio de reparación y equipos dentales.</p>
+                                Estoy muy agradecida con NDG por su servicio de reparación, mantenimiento y venta en equipos dentales.</p>
                         </blockquote>
                         <figcaption className="blockquote-footer">
-                            Andrea
+                            José Jaime Guadalupe Castañeda Ruiz
                         </figcaption>
                     </figure>
                 </div>
@@ -144,33 +154,46 @@ const Plantilla_2 : React.FC  = () => {
             {/* opinion final */}
 
             {/* galeria comienzo */}
-            <section className='w-100 p-3 mb-3'>
-                <h2 className='display-6 fw-bold mb-3 text-center'>Galeria</h2>
+            <section className='w-100 p-5 mb-3'>
+                <h2 className='display-6 fw-bold mb-4 text-center'>Galeria</h2>
 
                 <div className='d-flex justify-content-center align-content-center'>
-                    <div id="carouselExampleIndicators" className="carousel slide w-100">
+                    <div id="carouselExampleIndicators" className="carousel slide w-75">
                         <div className="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            {imagenes.map((imagen: any, index: number) => (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to={index}
+                                    className={index === 0 ? 'active' : ''}
+                                    aria-label={`Slide ${index + 1}`}
+                                ></button>
+                            ))}
                         </div>
-                        <div className="carousel-inner" style={{ maxHeight: "500px" }}>
-                            <div className="carousel-item active">
-                                <img src={image5} className="d-block w-100" alt="..." />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={image6} className="d-block w-100" alt="..." />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={image7} className="d-block w-100" alt="..." />
-                            </div>
+                        <div className="carousel-inner">
+                            {imagenes.map((imagen: any, index: number) => (
+                                <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                                    <img src={imagen} className="d-block w-100" style={{ maxHeight: '300px', objectFit: 'contain' }} alt={`Imagen ${index + 1}`} />
+                                </div>
+                            ))}
                         </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <button
+                            className="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev"
+                        >
+                            <span className="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
                             <span className="visually-hidden">Anterior</span>
                         </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <button
+                            className="carousel-control-next"
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next"
+                        >
+                            <span className="carousel-control-next-icon bg-black" aria-hidden="true"></span>
                             <span className="visually-hidden">Siguiente</span>
                         </button>
                     </div>
@@ -179,12 +202,12 @@ const Plantilla_2 : React.FC  = () => {
             {/* galeria final */}
 
             {/* ubicacion comienzo */}
-            <section className='w-100 p-3 mb-3 row'>
+            <section className='w-100 p-3 m-0 row' style={{ background: "#ECECEC" }}>
                 <div className="col-lg-6">
-                    <div className="about-us-padding">
+                    <div className="p-5">
                         <h2 className='display-6 fw-bold mb-3'>Ubicación</h2>
                         <p className='lead'>
-                            GDL, Jalisco, México
+                            C. Batalla de Cuahtla 2555, Río Verde, 44700 Guadalajara, Jal., México
                         </p>
                     </div>
                 </div>
@@ -199,85 +222,43 @@ const Plantilla_2 : React.FC  = () => {
             {/* form comienzo */}
             <section className='w-100 p-3 mb-3 row'>
                 <div className="col-lg-6">
-                    <div className="about-us-padding">
-                        <form className="row g-3 needs-validation" noValidate>
-                            <div className="col-md-4">
-                                <label htmlFor="validationCustom01" className="form-label">First name</label>
-                                <input type="text" className="form-control" id="validationCustom01" defaultValue="Mark" required />
-                                <div className="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="validationCustom02" className="form-label">Last name</label>
-                                <input type="text" className="form-control" id="validationCustom02" defaultValue="Otto" required />
-                                <div className="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="validationCustomUsername" className="form-label">Username</label>
-                                <div className="input-group has-validation">
-                                    <span className="input-group-text" id="inputGroupPrepend">@</span>
-                                    <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required />
-                                    <div className="invalid-feedback">
-                                        Please choose a username.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="validationCustom03" className="form-label">City</label>
-                                <input type="text" className="form-control" id="validationCustom03" required />
-                                <div className="invalid-feedback">
-                                    Please provide a valid city.
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <label htmlFor="validationCustom04" className="form-label">State</label>
-                                <select defaultValue={""} className="form-select" id="validationCustom04" required>
-                                    <option disabled value="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                <div className="invalid-feedback">
-                                    Please select a valid state.
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <label htmlFor="validationCustom05" className="form-label">Zip</label>
-                                <input type="text" className="form-control" id="validationCustom05" required />
-                                <div className="invalid-feedback">
-                                    Please provide a valid zip.
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                                    <label className="form-check-label" htmlFor="invalidCheck">
-                                        Agree to terms and conditions
-                                    </label>
-                                    <div className="invalid-feedback">
-                                        You must agree before submitting.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <button className="btn btn-primary" type="submit">Submit form</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="about-us-padding">
-                        <h2 className='display-6 fw-bold mb-3'>Contactanos</h2>
+                    <div className="p-5">
+                        <h2 className='display-6 mb-3'>Contactanos</h2>
                         <p className='lead'>
-                            Comunixate con nosotros utilizando el formulario de contacto a continuacion.
+                            Comunicate con nosotros utilizando el formulario de contacto a continuación.
                             Esperamos con interés escuchar de ti y ayudarte con tus necesidades.
                         </p>
                     </div>
                 </div>
+                <div className="col-lg-6">
+                    <div className="p-5">
+                        <form className="row g-3 needs-validation" noValidate>
+                            <div className="col-md-4">
+                                <label htmlFor="validationCustom01" className="form-label">Nombre</label>
+                                <input type="text" className="form-control" id="validationCustom01" placeholder='Ingresa tu nombre...' required />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="validationCustom02" className="form-label">Correo</label>
+                                <input type="email" className="form-control" id="validationCustom02" placeholder='Tu email...' required />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="validationCustom03" className="form-label">Celular</label>
+                                <input type="tel" className="form-control" id="validationCustom03" placeholder='Ingresa tu teléfono...' required />
+                            </div>
+                            <div className="form">
+                                <label htmlFor="floatingTextarea" className="form-label">Mensaje</label>
+                                <textarea className="form-control" placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="floatingTextarea"></textarea>
+                            </div>
+                            <div className="col-12">
+                                <button className="btn btn-primary" type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </section>
             {/* form final */}
-            <Footer/>
+
+            <Footer />
         </div>
     );
 };
