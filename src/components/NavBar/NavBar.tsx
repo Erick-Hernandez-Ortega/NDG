@@ -11,7 +11,7 @@ import telefono from "../../icons/telefono.ico"
 
 const NavBar: React.FC = () => {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary px-5">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 sticky-top">
             <div className="d-flex flex-wrap justify-content-between align-items-center w-100">
                 <Link to={"/"} className='navbar-brand link_navbar'>
                     <p className='display-6 fw-bold'>NDG</p>
