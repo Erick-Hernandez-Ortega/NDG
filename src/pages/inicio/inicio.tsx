@@ -60,6 +60,26 @@ const Plantilla_2: React.FC = () => {
         galeria15
     ];
 
+    /* Hacer funcionar las animaciones */
+    const sectionRef = React.useRef<HTMLDivElement>(null);
+
+    const [servicesInView, setServicesInView] = React.useState(false);
+
+    const handleScroll = () => {
+        if (sectionRef.current) {
+            const rect = sectionRef.current.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+            setServicesInView(isVisible);
+        }
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
     return (
         <div className="container-fluid p-0">
             {/* contactanos comienzo */}
@@ -102,8 +122,8 @@ const Plantilla_2: React.FC = () => {
             <section className='w-100 p-3' style={{ background: "#ECECEC" }}>
                 <h2 className='display-6 fw-bold mb-3 text-center'>Servicios</h2>
 
-                <div className="row mb-3">
-                    <div className="col-lg-4">
+                <div className="row mb-3" ref={sectionRef}>
+                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="card">
                                 <img src={image2} className="card-img" width={300} height={320} alt="..." />
@@ -113,7 +133,7 @@ const Plantilla_2: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="card">
                                 <img src={image3} className="card-img" width={300} height={320} alt="..." />
@@ -123,7 +143,7 @@ const Plantilla_2: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="card">
                                 <img src={image4} className="card-img" width={300} height={320} alt="..." />
