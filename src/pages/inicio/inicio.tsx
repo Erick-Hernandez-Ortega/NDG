@@ -41,6 +41,8 @@ import galeria13 from './../../img/galeria/galeria 13.jpg';
 import galeria14 from './../../img/galeria/galeria 14.jpg';
 // @ts-ignore
 import galeria15 from './../../img/galeria/galeria 15.jpg';
+// @ts-ignore
+import whatsapp from "../../icons/whatsapp.ico"
 
 const Plantilla_2: React.FC = () => {
     const imagenes: Array<any> = [
@@ -129,6 +131,13 @@ const Plantilla_2: React.FC = () => {
 
     return (
         <div className="container-fluid p-0">
+            {/* Botón de whatsapp*/}
+            <div className="whatsapp-button">
+                <a href="https://wa.me/3317163400" target="_blank" rel="noopener noreferrer" className="btn btn-success">
+                    <img src={whatsapp} width={35} alt="" />
+                </a>
+            </div>
+            {/* Botón de whatsapp*/}
             {/* contactanos comienzo */}
             <section className='image-section'>
                 <div className="overlay d-flex justify-content-center align-items-center">

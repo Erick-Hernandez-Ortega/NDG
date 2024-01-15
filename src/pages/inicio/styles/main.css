@@ -29,3 +29,30 @@
   opacity: 1;
   transform: scale(1);
 }
+
+/* Botón de Whatsapp */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-button a {
+  display: block;
+  background-color: #25d366;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.whatsapp-button a:hover {
+  background-color: #128C7E;
+}
+
+.whatsapp-button img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
