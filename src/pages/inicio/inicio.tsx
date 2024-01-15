@@ -83,40 +83,48 @@ const Plantilla_2: React.FC = () => {
     /* Hacer funcionar el formulario */
     const [values, setValues] = React.useState({
         name: "",
-        email: "",
         celphone: "",
         message: "",
     })
 
-    const [showEmptyFieldError, setShowEmptyFieldError] = React.useState(false);
-
     const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
+        console.log("Formulario enviado:", values);
 
-        if (values.name === "" || values.email === "" || values.celphone === "" || values.message === "") {
-            setShowEmptyFieldError(true);
-        } else {
-            console.log("Formulario enviado:", values);
-
-            // Limpiar valores y errores después del envío exitoso
-            setValues({
-                name: "",
-                email: "",
-                celphone: "",
-                message: "",
-            });
-            setShowEmptyFieldError(false);
-        }
+        // Limpiar valores
+        setValues({
+            name: "",
+            celphone: "",
+            message: "",
+        });
 
     }
 
     const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evt.target;
 
-        setValues((prevValues) => ({
-            ...prevValues,
-            [name]: value,
-        }));
+        // Expresión regular para validar letras y espacios
+        const validCharactersRegex = /^[a-zA-Z\s]*$/;
+
+        if (name === "name" && (validCharactersRegex.test(value) || value === "")) {
+            setValues((prevValues) => ({
+                ...prevValues,
+                [name]: value,
+            }));
+        } else if (name === "celphone") {
+            const numericValue = value.replace(/\D/g, "");
+            if (/^\d{0,10}$/.test(numericValue)) {
+                setValues((prevValues) => ({
+                    ...prevValues,
+                    [name]: numericValue,
+                }));
+            }
+        } else {
+            setValues((prevValues) => ({
+                ...prevValues,
+                [name]: value,
+            }));
+        }
     }
 
     return (
@@ -291,7 +299,7 @@ const Plantilla_2: React.FC = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <form className="row g-3 needs-validation" onSubmit={handleSubmit} noValidate>
+                        <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
                             <div className="col-md-4">
                                 <label htmlFor="name" className="form-label">Nombre</label>
                                 <input type="text"
@@ -301,16 +309,6 @@ const Plantilla_2: React.FC = () => {
                                     value={values.name}
                                     onChange={handleChange}
                                     placeholder='Ingresa tu nombre...' required />
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="email" className="form-label">Correo</label>
-                                <input type="email"
-                                    className="form-control"
-                                    id="email"
-                                    name='email'
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    placeholder='Tu email...' required />
                             </div>
                             <div className="col-md-4">
                                 <label htmlFor="celphone" className="form-label">Celular</label>
@@ -328,15 +326,8 @@ const Plantilla_2: React.FC = () => {
                                     name='message'
                                     value={values.message}
                                     onChange={handleChange}
-                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="message"></textarea>
+                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="message" required></textarea>
                             </div>
-                            {/* Mensaje de error por campos vacíos */}
-                            {showEmptyFieldError && (
-                                <div className="alert alert-danger mt-3" role="alert">
-                                    Por favor, completa todos los campos antes de enviar.
-                                </div>
-                            )}
-
                             {/* Botón de enviar */}
                             <div className="col-12 mt-3">
                                 <button className="btn btn-primary" type="submit">
