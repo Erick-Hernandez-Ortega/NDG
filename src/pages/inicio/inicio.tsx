@@ -80,6 +80,45 @@ const Plantilla_2: React.FC = () => {
         }
     }, []);
 
+    /* Hacer funcionar el formulario */
+    const [values, setValues] = React.useState({
+        name: "",
+        email: "",
+        celphone: "",
+        message: "",
+    })
+
+    const [showEmptyFieldError, setShowEmptyFieldError] = React.useState(false);
+
+    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+        evt.preventDefault();
+
+        if (values.name === "" || values.email === "" || values.celphone === "" || values.message === "") {
+            setShowEmptyFieldError(true);
+        } else {
+            console.log("Formulario enviado:", values);
+
+            // Limpiar valores y errores después del envío exitoso
+            setValues({
+                name: "",
+                email: "",
+                celphone: "",
+                message: "",
+            });
+            setShowEmptyFieldError(false);
+        }
+
+    }
+
+    const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = evt.target;
+
+        setValues((prevValues) => ({
+            ...prevValues,
+            [name]: value,
+        }));
+    }
+
     return (
         <div className="container-fluid p-0">
             {/* contactanos comienzo */}
@@ -252,25 +291,57 @@ const Plantilla_2: React.FC = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <form className="row g-3 needs-validation" noValidate>
+                        <form className="row g-3 needs-validation" onSubmit={handleSubmit} noValidate>
                             <div className="col-md-4">
-                                <label htmlFor="validationCustom01" className="form-label">Nombre</label>
-                                <input type="text" className="form-control" id="validationCustom01" placeholder='Ingresa tu nombre...' required />
+                                <label htmlFor="name" className="form-label">Nombre</label>
+                                <input type="text"
+                                    className="form-control"
+                                    id="name"
+                                    name='name'
+                                    value={values.name}
+                                    onChange={handleChange}
+                                    placeholder='Ingresa tu nombre...' required />
                             </div>
                             <div className="col-md-4">
-                                <label htmlFor="validationCustom02" className="form-label">Correo</label>
-                                <input type="email" className="form-control" id="validationCustom02" placeholder='Tu email...' required />
+                                <label htmlFor="email" className="form-label">Correo</label>
+                                <input type="email"
+                                    className="form-control"
+                                    id="email"
+                                    name='email'
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    placeholder='Tu email...' required />
                             </div>
                             <div className="col-md-4">
-                                <label htmlFor="validationCustom03" className="form-label">Celular</label>
-                                <input type="tel" className="form-control" id="validationCustom03" placeholder='Ingresa tu teléfono...' required />
+                                <label htmlFor="celphone" className="form-label">Celular</label>
+                                <input type="tel"
+                                    className="form-control"
+                                    id="celphone"
+                                    name='celphone'
+                                    value={values.celphone}
+                                    onChange={handleChange}
+                                    placeholder='Ingresa tu teléfono...' required />
                             </div>
                             <div className="form">
-                                <label htmlFor="floatingTextarea" className="form-label">Mensaje</label>
-                                <textarea className="form-control" placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="floatingTextarea"></textarea>
+                                <label htmlFor="message" className="form-label">Mensaje</label>
+                                <textarea className="form-control"
+                                    name='message'
+                                    value={values.message}
+                                    onChange={handleChange}
+                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="message"></textarea>
                             </div>
-                            <div className="col-12">
-                                <button className="btn btn-primary" type="submit">Enviar</button>
+                            {/* Mensaje de error por campos vacíos */}
+                            {showEmptyFieldError && (
+                                <div className="alert alert-danger mt-3" role="alert">
+                                    Por favor, completa todos los campos antes de enviar.
+                                </div>
+                            )}
+
+                            {/* Botón de enviar */}
+                            <div className="col-12 mt-3">
+                                <button className="btn btn-primary" type="submit">
+                                    Enviar
+                                </button>
                             </div>
                         </form>
                     </div>
