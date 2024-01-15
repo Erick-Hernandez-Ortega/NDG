@@ -135,7 +135,7 @@ const Plantilla_2: React.FC = () => {
                     <div className="w-75">
                         <h1 className='display-3 fw-bold mb-3'>Reparación de equipo dental</h1>
                         <h5 className='mb-3'>Obtén la mejor atención y reparación en equipos dentales</h5>
-                        <button type='button' className="btn btn-primary mb-3">Contáctanos</button>
+                        <a type='button' href='#contactForm' className="btn btn-primary mb-3">Contáctanos</a>
                     </div>
                 </div>
             </section>
@@ -299,7 +299,7 @@ const Plantilla_2: React.FC = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
+                        <form id='contactForm' className="row g-3 needs-validation" onSubmit={handleSubmit}>
                             <div className="col-md-4">
                                 <label htmlFor="name" className="form-label">Nombre</label>
                                 <input type="text"
