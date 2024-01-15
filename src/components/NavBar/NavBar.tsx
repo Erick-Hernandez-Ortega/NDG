@@ -29,7 +29,7 @@ const NavBar: React.FC = () => {
                         </a>
                     </li>
                     <li className='ms-3'>
-                        <a href="#" target='_blank'>
+                        <a href="https://wa.me/3317163400" target='_blank'>
                             <img src={whatsapp} width={35} alt="" />
                         </a>
                     </li>
