@@ -43,7 +43,7 @@ import galeria14 from './../../img/galeria/galeria 14.jpg';
 import galeria15 from './../../img/galeria/galeria 15.jpg';
 // @ts-ignore
 import whatsapp from "../../icons/whatsapp.ico"
-
+import emailjs from '@emailjs/browser';
 const Plantilla_2: React.FC = () => {
     const imagenes: Array<any> = [
         galeria2,
@@ -84,50 +84,50 @@ const Plantilla_2: React.FC = () => {
 
     /* Hacer funcionar el formulario */
     const [values, setValues] = React.useState({
-        name: "",
-        celphone: "",
+        user_name: "",
+        user_email: "",
+        user_phone: "",
         message: "",
     })
-
-    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault();
-        console.log("Formulario enviado:", values);
-
-        // Limpiar valores
-        setValues({
-            name: "",
-            celphone: "",
-            message: "",
-        });
-
-    }
 
     const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evt.target;
 
-        // Expresión regular para validar letras y espacios
-        const validCharactersRegex = /^[a-zA-Z\s]*$/;
+        const fieldValidations: Record<string, RegExp | ((v: string) => boolean)> = {
+            user_name: /^[a-zA-Z\s]*$/,
+            user_email: /[a-z0-9]+/,
+            user_phone: /^\d{0,10}$/,
+            message: /[a-z0-9]+/,
+            // Agrega otras validaciones si es necesario
+        };
 
-        if (name === "name" && (validCharactersRegex.test(value) || value === "")) {
-            setValues((prevValues) => ({
-                ...prevValues,
-                [name]: value,
-            }));
-        } else if (name === "celphone") {
-            const numericValue = value.replace(/\D/g, "");
-            if (/^\d{0,10}$/.test(numericValue)) {
-                setValues((prevValues) => ({
-                    ...prevValues,
-                    [name]: numericValue,
-                }));
-            }
-        } else {
+        if (fieldValidations[name] && (typeof fieldValidations[name] === 'function' ? fieldValidations[name](value) : fieldValidations[name].test(value) || value === "")) {
             setValues((prevValues) => ({
                 ...prevValues,
                 [name]: value,
             }));
         }
-    }
+    };
+    /* EmailJS */
+    const form = React.useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_f8xxm9r', 'template_ou49bbo', form.current, 'U-Fs-m5q0TeNGw_wu')
+            .then((result) => {
+                console.log(result.text);
+                setValues({
+                    user_name: "",
+                    user_email: "",
+                    user_phone: "",
+                    message: "",
+                })
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+    /* Toast */
 
     return (
         <div className="container-fluid p-0">
@@ -296,7 +296,7 @@ const Plantilla_2: React.FC = () => {
             {/* ubicacion final */}
 
             {/* form comienzo */}
-            <section className='w-100 p-3 mb-3 row'>
+            <section id='contactForm' className='w-100 p-3 mb-3 row'>
                 <div className="col-lg-6">
                     <div className="p-5">
                         <h2 className='display-6 mb-3'>Contactanos</h2>
@@ -308,7 +308,7 @@ const Plantilla_2: React.FC = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <form id='contactForm' className="row g-3 needs-validation" onSubmit={handleSubmit}>
+                        {/*                         <form id='contactForm' className="row g-3 needs-validation" onSubmit={handleSubmit}>
                             <div className="col-md-4">
                                 <label htmlFor="name" className="form-label">Nombre</label>
                                 <input type="text"
@@ -337,11 +337,60 @@ const Plantilla_2: React.FC = () => {
                                     onChange={handleChange}
                                     placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="message" required></textarea>
                             </div>
-                            {/* Botón de enviar */}
+                             Botón de enviar
                             <div className="col-12 mt-3">
                                 <button className="btn btn-primary" type="submit">
                                     Enviar
                                 </button>
+                            </div>
+                        </form> */}
+                        <form ref={form}
+                            className="row g-3 needs-validation"
+                            onSubmit={sendEmail}>
+                            <div className="col-md-4">
+                                <label htmlFor="name" className="form-label">Nombre</label>
+                                <input type="text"
+                                    className="form-control"
+                                    id="name"
+                                    name='user_name'
+                                    value={values.user_name}
+                                    onChange={handleChange}
+                                    placeholder='Ingresa tu nombre...' required />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="email" className="form-label">Email</label>
+                                <input type="email"
+                                    className="form-control"
+                                    id="email"
+                                    name='user_email'
+                                    value={values.user_email}
+                                    onChange={handleChange}
+                                    placeholder='Ingresa tu correo...' required />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="phone" className="form-label">Celular</label>
+                                <input type="tel"
+                                    className="form-control"
+                                    id="phone"
+                                    name='user_phone'
+                                    value={values.user_phone}
+                                    onChange={handleChange}
+                                    placeholder='Ingresa tu numéro...' required />
+                            </div>
+                            <div className="form">
+                                <label htmlFor="message" className="form-label">Mensaje</label>
+                                <textarea className="form-control"
+                                    id="message"
+                                    name='message'
+                                    value={values.message}
+                                    onChange={handleChange}
+                                    style={{ height: 150 }}
+                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' required></textarea>
+                            </div>
+                            <div className="col-12 mt-3">
+                                <input type="submit"
+                                    className="btn btn-primary"
+                                    value="Enviar" />
                             </div>
                         </form>
                     </div>
