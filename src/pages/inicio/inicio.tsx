@@ -176,35 +176,82 @@ const Plantilla_2: React.FC = () => {
 
             {/* servicios empieza */}
             <section className='w-100 p-3' style={{ background: "#ECECEC" }}>
-                <h2 className='display-6 fw-bold mb-3 text-center'>Servicios</h2>
+                <h2 className='display-6 fw-bold mb-5 text-center'>Servicios</h2>
 
                 <div className="row mb-3" ref={sectionRef}>
-                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image2} className="card-img" width={300} height={320} alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Reparación</h4>
+                    <div className="row flex-wrap-reverse justify-content-around mb-5">
+                        {/* Tarjeta izquierda */}
+                        <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card">
+                                    <img src={image2} className="card-img" width={300} height={320} alt="..." />
+                                    <div className="card-img-overlay">
+                                        <h4 className="text-dark text-center fw-bold text-shadow"></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Tarjeta derecha */}
+                        <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card" style={{ background: "#ECECEC", border: 0 }}>
+                                    <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Reparación</h3>
+                                    <div className="card-body">
+                                        <p className="card-text align-self-start ">Contamos con un servicio de reparación de calidad.
+                                            Contactanos para más información sobre lso equipos que reparamos.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image3} className="card-img" width={300} height={320} alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Mantenimiento</h4>
+
+                    <div className="row flex-wrap justify-content-around mb-5">
+                        {/* Tarjeta derecha */}
+                        <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card" style={{ background: "#ECECEC", border: 0 }}>
+                                    <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Mantenimiento</h3>
+                                    <div className="card-body">
+                                        <p className="card-text align-self-start ">Contamos con un servicio de reparación de calidad.
+                                            Contactanos para más información sobre lso equipos que reparamos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Tarjeta izquierda */}
+                        <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card">
+                                    <img src={image3} className="card-img" width={300} height={320} alt="..." />
+                                    <div className="card-img-overlay">
+                                        <h4 className="text-dark text-center fw-bold text-shadow"></h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image4} className="card-img" width={300} height={320} alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Venta</h4>
+
+                    <div className="row flex-wrap-reverse justify-content-around">
+                        {/* Tarjeta izquierda */}
+                        <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card">
+                                    <img src={image4} className="card-img" width={300} height={320} alt="..." />
+                                    <div className="card-img-overlay">
+                                        <h4 className="text-dark text-center fw-bold text-shadow"></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Tarjeta derecha */}
+                        <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card" style={{ background: "#ECECEC", border: 0 }}>
+                                    <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Venta</h3>
+                                    <div className="card-body">
+                                        <p className="card-text align-self-start ">Contamos con un servicio de reparación de calidad.
+                                            Contactanos para más información sobre lso equipos que reparamos.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
