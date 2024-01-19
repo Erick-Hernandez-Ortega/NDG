@@ -212,8 +212,10 @@ const Plantilla_2: React.FC = () => {
                                 <div className="card" style={{ background: "#ECECEC", border: 0 }}>
                                     <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Reparación</h3>
                                     <div className="card-body">
-                                        <p className="card-text align-self-start ">Contamos con un servicio de reparación de calidad.
-                                            Contactanos para más información sobre lso equipos que reparamos.</p>
+                                        <p className="card-text align-self-start ">Descubre la excelencia en nuestros servicios de reparación. Nuestra experiencia y la
+                                            satisfacción de nuestros clientes hablan por sí mismas. Estamos listos para resolver tus necesidades y responder a tus
+                                            preguntas. ¡Comunícate con nosotros hoy para obtener más información o para contratar nuestros servicios de reparación
+                                            confiables y de alta calidad!</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,8 +229,12 @@ const Plantilla_2: React.FC = () => {
                                 <div className="card" style={{ background: "#ECECEC", border: 0 }}>
                                     <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Mantenimiento</h3>
                                     <div className="card-body">
-                                        <p className="card-text align-self-start ">Contamos con un servicio de reparación de calidad.
-                                            Contactanos para más información sobre lso equipos que reparamos.</p>
+                                        <p className="card-text align-self-start ">Preserva el rendimiento óptimo de
+                                            tus equipos con nuestro servicio de mantenimiento de piezas.
+                                            Cuidamos cada detalle para garantizar un funcionamiento impecable.
+                                            Descubre la tranquilidad de contar con expertos que cuidan de tus
+                                            herramientas. ¡Contáctanos ahora para asegurar la durabilidad y
+                                            eficiencia de tus equipos!</p>
                                     </div>
                                 </div>
                             </div>
@@ -264,8 +270,13 @@ const Plantilla_2: React.FC = () => {
                                 <div className="card" style={{ background: "#ECECEC", border: 0 }}>
                                     <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Venta</h3>
                                     <div className="card-body">
-                                        <p className="card-text align-self-start ">Contamos con un servicio de reparación de calidad.
-                                            Contactanos para más información sobre lso equipos que reparamos.</p>
+                                        <p className="card-text align-self-start ">Explora la excelencia en tecnología dental
+                                            con nuestra selección de equipos de calidad. Nos enorgullece
+                                            ofrecer soluciones avanzadas y confiables para tu práctica
+                                            odontológica. Descubre la innovación, el rendimiento superior y
+                                            la durabilidad en cada equipo que ofrecemos. ¡Da un paso hacia el
+                                            futuro de la odontología con NDG! Contáctanos para adquirir los
+                                            mejores instrumentos que impulsarán tu éxito profesional.</p>
                                     </div>
                                 </div>
                             </div>
