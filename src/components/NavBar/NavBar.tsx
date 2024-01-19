@@ -10,11 +10,31 @@ import whatsapp from "../../icons/whatsapp.ico"
 import telefono from "../../icons/telefono.ico"
 
 const NavBar: React.FC = () => {
+    /* Modo oscuro */
+    const [prefersDarkMode, setPrefersDarkMode] = React.useState(
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
+
+    const handleDarkModeChange = (e) => {
+        console.log('Dark mode change:', e.matches);
+        setPrefersDarkMode(e.matches);
+    };
+
+    React.useEffect(() => {
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        handleDarkModeChange(darkModeQuery);
+
+        // Limpiar el listener cuando el componente se desmonta
+        return () => {
+            darkModeQuery.removeEventListener('change', handleDarkModeChange);
+        }
+    }, []);
+
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 sticky-top">
+        <nav className={`navbar navbar-expand-lg px-5 sticky-top ${prefersDarkMode ? 'bg-dark' : 'bg-body-tertiary'}`}>
             <div className="d-flex flex-wrap justify-content-between align-items-center w-100">
                 <Link to={"/"} className='navbar-brand link_navbar'>
-                    <p className='display-6 fw-bold'>NDG</p>
+                    <p className={`display-6 fw-bold ${prefersDarkMode ? 'text-light' : ''} `}>NDG</p>
                 </Link>
 
                 <ul className='nav col-md-4 justify-content-end list-unstyled d-flex'>

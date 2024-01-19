@@ -90,8 +90,6 @@ const Plantilla_2: React.FC = () => {
         const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
         handleDarkModeChange(darkModeQuery);
 
-        darkModeQuery.addEventListener('change', handleChange);
-
         // Limpiar el listener cuando el componente se desmonta
         return () => {
             window.removeEventListener('scroll', handleScroll);
