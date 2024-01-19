@@ -65,9 +65,9 @@ const Plantilla_2: React.FC = () => {
     /* Hacer funcionar las animaciones */
     const sectionRef = React.useRef<HTMLDivElement>(null);
 
-    const [servicesInView, setServicesInView] = React.useState(false);
+    const [servicesInView, setServicesInView]: any = React.useState(false);
 
-    const handleScroll = () => {
+    const handleScroll = (): void => {
         if (sectionRef.current) {
             const rect = sectionRef.current.getBoundingClientRect();
             const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
@@ -83,14 +83,14 @@ const Plantilla_2: React.FC = () => {
     }, []);
 
     /* Hacer funcionar el formulario */
-    const [values, setValues] = React.useState({
+    const [values, setValues]: any = React.useState({
         user_name: "",
         user_email: "",
         user_phone: "",
         message: "",
     })
 
-    const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange: any = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evt.target;
 
         const fieldValidations: Record<string, RegExp | ((v: string) => boolean)> = {
@@ -109,9 +109,9 @@ const Plantilla_2: React.FC = () => {
         }
     };
     /* EmailJS */
-    const form = React.useRef();
+    const form: any = React.useRef();
 
-    const sendEmail = (e) => {
+    const sendEmail = (e: any) => {
         e.preventDefault();
 
         emailjs.sendForm('service_f8xxm9r', 'template_ou49bbo', form.current, 'U-Fs-m5q0TeNGw_wu')
@@ -266,7 +266,7 @@ const Plantilla_2: React.FC = () => {
                     <figure className='w-75'>
                         <blockquote className="blockquote">
                             <p className='display-6'>
-                                Estoy muy agradecida con NDG por su servicio de reparación, mantenimiento y venta en equipos dentales.</p>
+                                Estoy muy agradecido con NDG por su servicio de reparación, mantenimiento y venta en equipos dentales.</p>
                         </blockquote>
                         <figcaption className="blockquote-footer">
                             José Jaime Guadalupe Castañeda Ruiz
