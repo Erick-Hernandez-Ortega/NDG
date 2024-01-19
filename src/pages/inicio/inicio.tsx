@@ -66,6 +66,15 @@ const Plantilla_2: React.FC = () => {
     const sectionRef = React.useRef<HTMLDivElement>(null);
 
     const [servicesInView, setServicesInView]: any = React.useState(false);
+    /* Modo oscuro */
+    const [prefersDarkMode, setPrefersDarkMode] = React.useState(
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
+
+    const handleDarkModeChange = (e) => {
+        console.log('Dark mode change:', e.matches);
+        setPrefersDarkMode(e.matches);
+    };
 
     const handleScroll = (): void => {
         if (sectionRef.current) {
@@ -77,8 +86,16 @@ const Plantilla_2: React.FC = () => {
 
     React.useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        handleDarkModeChange(darkModeQuery);
+
+        darkModeQuery.addEventListener('change', handleChange);
+
+        // Limpiar el listener cuando el componente se desmonta
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            darkModeQuery.removeEventListener('change', handleDarkModeChange);
         }
     }, []);
 
@@ -130,7 +147,7 @@ const Plantilla_2: React.FC = () => {
     /* Toast */
 
     return (
-        <div className="container-fluid p-0">
+        <div className={`container-fluid p-0 ${prefersDarkMode ? 'bg-dark' : ''}`}>
             {/* Botón de whatsapp*/}
             <div className="whatsapp-button">
                 <a href="https://wa.me/3317163400" target="_blank" rel="noopener noreferrer" className="btn btn-success">
@@ -144,16 +161,16 @@ const Plantilla_2: React.FC = () => {
                     <div className="w-75">
                         <h1 className='display-3 fw-bold mb-3'>Reparación de equipo dental</h1>
                         <h5 className='mb-3'>Obtén la mejor atención y reparación en equipos dentales</h5>
-                        <a type='button' href='#contactForm' className="btn btn-primary mb-3">Contáctanos</a>
+                        <a type='button' href='#contactForm' className={`btn mb-3 ${prefersDarkMode ? 'btn-dark' : 'btn-primary'}`}>Contáctanos</a>
                     </div>
                 </div>
             </section>
             {/* contactanos final */}
 
-            {/* sobre nosotros comienxo */}
-            <section className='w-100 row'>
+            {/* sobre nosotros comienzo */}
+            <section className="w-100 row">
                 <div className="col-lg-6">
-                    <div className="p-5">
+                    <div className={`p-5 ${prefersDarkMode ? 'text-light' : ''}`}>
                         <h2 className='display-6 fw-bold mb-3'>Sobre nosotros</h2>
                         <p className='lead'>
                             Bienvenidos a NDG, su aliado confiable en el mundo de la salud dental en Jalisco, México.
@@ -265,7 +282,7 @@ const Plantilla_2: React.FC = () => {
                 <div className="d-flex justify-content-center align-content-center">
                     <figure className='w-75'>
                         <blockquote className="blockquote">
-                            <p className='display-6'>
+                            <p className={`display-6 ${prefersDarkMode ? 'text-light' : ''}`}>
                                 Estoy muy agradecido con NDG por su servicio de reparación, mantenimiento y venta en equipos dentales.</p>
                         </blockquote>
                         <figcaption className="blockquote-footer">
@@ -278,7 +295,7 @@ const Plantilla_2: React.FC = () => {
 
             {/* galeria comienzo */}
             <section className='w-100 p-5 mb-3'>
-                <h2 className='display-6 fw-bold mb-4 text-center'>Galeria</h2>
+                <h2 className={`display-6 fw-bold mb-4 text-center ${prefersDarkMode ? 'text-light' : ''}`}>Galeria</h2>
 
                 <div className='d-flex justify-content-center align-content-center'>
                     <div id="carouselExampleIndicators" className="carousel slide w-75">
@@ -346,8 +363,8 @@ const Plantilla_2: React.FC = () => {
             <section id='contactForm' className='w-100 p-3 mb-3 row'>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <h2 className='display-6 mb-3'>Contactanos</h2>
-                        <p className='lead'>
+                        <h2 className={`display-6 mb-3 ${prefersDarkMode ? 'text-light' : ''}`}>Contactanos</h2>
+                        <p className={`lead ${prefersDarkMode ? 'text-light' : ''}`}>
                             Comunicate con nosotros utilizando el formulario de contacto a continuación.
                             Esperamos con interés escuchar de ti y ayudarte con tus necesidades.
                         </p>
@@ -355,47 +372,11 @@ const Plantilla_2: React.FC = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        {/*                         <form id='contactForm' className="row g-3 needs-validation" onSubmit={handleSubmit}>
-                            <div className="col-md-4">
-                                <label htmlFor="name" className="form-label">Nombre</label>
-                                <input type="text"
-                                    className="form-control"
-                                    id="name"
-                                    name='name'
-                                    value={values.name}
-                                    onChange={handleChange}
-                                    placeholder='Ingresa tu nombre...' required />
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="celphone" className="form-label">Celular</label>
-                                <input type="tel"
-                                    className="form-control"
-                                    id="celphone"
-                                    name='celphone'
-                                    value={values.celphone}
-                                    onChange={handleChange}
-                                    placeholder='Ingresa tu teléfono...' required />
-                            </div>
-                            <div className="form">
-                                <label htmlFor="message" className="form-label">Mensaje</label>
-                                <textarea className="form-control"
-                                    name='message'
-                                    value={values.message}
-                                    onChange={handleChange}
-                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="message" required></textarea>
-                            </div>
-                             Botón de enviar
-                            <div className="col-12 mt-3">
-                                <button className="btn btn-primary" type="submit">
-                                    Enviar
-                                </button>
-                            </div>
-                        </form> */}
                         <form ref={form}
                             className="row g-3 needs-validation"
                             onSubmit={sendEmail}>
                             <div className="col-md-4">
-                                <label htmlFor="name" className="form-label">Nombre</label>
+                                <label htmlFor="name" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Nombre</label>
                                 <input type="text"
                                     className="form-control"
                                     id="name"
@@ -405,7 +386,7 @@ const Plantilla_2: React.FC = () => {
                                     placeholder='Ingresa tu nombre...' required />
                             </div>
                             <div className="col-md-4">
-                                <label htmlFor="email" className="form-label">Email</label>
+                                <label htmlFor="email" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Email</label>
                                 <input type="email"
                                     className="form-control"
                                     id="email"
@@ -415,7 +396,7 @@ const Plantilla_2: React.FC = () => {
                                     placeholder='Ingresa tu correo...' required />
                             </div>
                             <div className="col-md-4">
-                                <label htmlFor="phone" className="form-label">Celular</label>
+                                <label htmlFor="phone" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Celular</label>
                                 <input type="tel"
                                     className="form-control"
                                     id="phone"
@@ -425,7 +406,7 @@ const Plantilla_2: React.FC = () => {
                                     placeholder='Ingresa tu numéro...' required />
                             </div>
                             <div className="form">
-                                <label htmlFor="message" className="form-label">Mensaje</label>
+                                <label htmlFor="message" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Mensaje</label>
                                 <textarea className="form-control"
                                     id="message"
                                     name='message'
@@ -436,7 +417,7 @@ const Plantilla_2: React.FC = () => {
                             </div>
                             <div className="col-12 mt-3">
                                 <input type="submit"
-                                    className="btn btn-primary"
+                                    className={`btn ${prefersDarkMode ? 'btn-dark border border-white' : 'btn-primary'}`}
                                     value="Enviar" />
                             </div>
                         </form>
