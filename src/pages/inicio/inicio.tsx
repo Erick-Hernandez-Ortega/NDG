@@ -190,8 +190,8 @@ const Plantilla_2: React.FC = () => {
             {/* sobre nosotros final */}
 
             {/* servicios empieza */}
-            <section className='w-100 p-3' style={{ background: "#ECECEC" }}>
-                <h2 className='display-6 fw-bold mb-5 text-center'>Servicios</h2>
+            <section className='w-100 p-3' style={{ background: prefersDarkMode ? '#333333' : "#ECECEC" }}>
+                <h2 className={`display-6 fw-bold mb-5 text-center ${prefersDarkMode ? 'text-light' : ''}`}>Servicios</h2>
 
                 <div className="row mb-3" ref={sectionRef}>
                     <div className="row flex-wrap-reverse justify-content-around mb-5">
@@ -209,10 +209,10 @@ const Plantilla_2: React.FC = () => {
                         {/* Tarjeta derecha */}
                         <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
-                                <div className="card" style={{ background: "#ECECEC", border: 0 }}>
-                                    <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Reparación</h3>
+                                <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
+                                    <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Reparación</h3>
                                     <div className="card-body">
-                                        <p className="card-text align-self-start ">Descubre la excelencia en nuestros servicios de reparación. Nuestra experiencia y la
+                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Descubre la excelencia en nuestros servicios de reparación. Nuestra experiencia y la
                                             satisfacción de nuestros clientes hablan por sí mismas. Estamos listos para resolver tus necesidades y responder a tus
                                             preguntas. ¡Comunícate con nosotros hoy para obtener más información o para contratar nuestros servicios de reparación
                                             confiables y de alta calidad!</p>
@@ -226,10 +226,10 @@ const Plantilla_2: React.FC = () => {
                         {/* Tarjeta derecha */}
                         <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
-                                <div className="card" style={{ background: "#ECECEC", border: 0 }}>
-                                    <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Mantenimiento</h3>
+                                <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
+                                    <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Mantenimiento</h3>
                                     <div className="card-body">
-                                        <p className="card-text align-self-start ">Preserva el rendimiento óptimo de
+                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Preserva el rendimiento óptimo de
                                             tus equipos con nuestro servicio de mantenimiento de piezas.
                                             Cuidamos cada detalle para garantizar un funcionamiento impecable.
                                             Descubre la tranquilidad de contar con expertos que cuidan de tus
@@ -267,10 +267,10 @@ const Plantilla_2: React.FC = () => {
                         {/* Tarjeta derecha */}
                         <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
-                                <div className="card" style={{ background: "#ECECEC", border: 0 }}>
-                                    <h3 className="text-dark text-center fw-bold card-title align-self-start ms-3">Venta</h3>
+                                <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
+                                    <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Venta</h3>
                                     <div className="card-body">
-                                        <p className="card-text align-self-start ">Explora la excelencia en tecnología dental
+                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Explora la excelencia en tecnología dental
                                             con nuestra selección de equipos de calidad. Nos enorgullece
                                             ofrecer soluciones avanzadas y confiables para tu práctica
                                             odontológica. Descubre la innovación, el rendimiento superior y
@@ -351,11 +351,11 @@ const Plantilla_2: React.FC = () => {
             {/* galeria final */}
 
             {/* ubicacion comienzo */}
-            <section className='w-100 p-3 m-0 row' style={{ background: "#ECECEC" }}>
+            <section className='w-100 p-3 m-0 row' style={{ background: prefersDarkMode ? '#333333' : "#ECECEC" }}>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <h2 className='display-6 fw-bold mb-3'>Ubicación</h2>
-                        <p className='lead'>
+                        <h2 className={`display-6 fw-bold mb-3 ${prefersDarkMode ? 'text-light' : ''}`}>Ubicación</h2>
+                        <p className={`lead ${prefersDarkMode ? 'text-light' : ''}`}>
                             C. Batalla de Cuahtla 2555, Río Verde, 44700 Guadalajara, Jal., México
                         </p>
                     </div>
