@@ -47,7 +47,7 @@ import emailjs from '@emailjs/browser';
 
 const Plantilla_2: React.FC = () => {
     const imagenes: Array<any> = [
-        galeria2,
+        image4,
         galeria3,
         galeria4,
         galeria5,
@@ -258,7 +258,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={image4} className="card-img" width={300} height={320} alt="..." />
+                                    <img src={galeria2} className="card-img" width={300} height={320} alt="..." />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
