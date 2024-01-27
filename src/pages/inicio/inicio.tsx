@@ -43,7 +43,7 @@ import galeria14 from './../../img/galeria/galeria 14.jpg';
 import galeria15 from './../../img/galeria/galeria 15.jpg';
 // @ts-ignore
 import whatsapp from "../../icons/whatsapp.ico"
-
+import emailjs from '@emailjs/browser';
 const Plantilla_2: React.FC = () => {
     const imagenes: Array<any> = [
         galeria2,
@@ -65,9 +65,18 @@ const Plantilla_2: React.FC = () => {
     /* Hacer funcionar las animaciones */
     const sectionRef = React.useRef<HTMLDivElement>(null);
 
-    const [servicesInView, setServicesInView] = React.useState(false);
+    const [servicesInView, setServicesInView]: any = React.useState(false);
+    /* Modo oscuro */
+    const [prefersDarkMode, setPrefersDarkMode] = React.useState(
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
 
-    const handleScroll = () => {
+    const handleDarkModeChange = (e) => {
+        console.log('Dark mode change:', e.matches);
+        setPrefersDarkMode(e.matches);
+    };
+
+    const handleScroll = (): void => {
         if (sectionRef.current) {
             const rect = sectionRef.current.getBoundingClientRect();
             const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
@@ -77,60 +86,66 @@ const Plantilla_2: React.FC = () => {
 
     React.useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        handleDarkModeChange(darkModeQuery);
+
+        // Limpiar el listener cuando el componente se desmonta
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            darkModeQuery.removeEventListener('change', handleDarkModeChange);
         }
     }, []);
 
     /* Hacer funcionar el formulario */
-    const [values, setValues] = React.useState({
-        name: "",
-        celphone: "",
+    const [values, setValues]: any = React.useState({
+        user_name: "",
+        user_email: "",
+        user_phone: "",
         message: "",
     })
 
-    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault();
-        console.log("Formulario enviado:", values);
-
-        // Limpiar valores
-        setValues({
-            name: "",
-            celphone: "",
-            message: "",
-        });
-
-    }
-
-    const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange: any = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evt.target;
 
-        // Expresión regular para validar letras y espacios
-        const validCharactersRegex = /^[a-zA-Z\s]*$/;
+        const fieldValidations: Record<string, RegExp | ((v: string) => boolean)> = {
+            user_name: /^[a-zA-Z\s]*$/,
+            user_email: /[a-z0-9]+/,
+            user_phone: /^\d{0,10}$/,
+            message: /[a-z0-9]+/,
+            // Agrega otras validaciones si es necesario
+        };
 
-        if (name === "name" && (validCharactersRegex.test(value) || value === "")) {
-            setValues((prevValues) => ({
-                ...prevValues,
-                [name]: value,
-            }));
-        } else if (name === "celphone") {
-            const numericValue = value.replace(/\D/g, "");
-            if (/^\d{0,10}$/.test(numericValue)) {
-                setValues((prevValues) => ({
-                    ...prevValues,
-                    [name]: numericValue,
-                }));
-            }
-        } else {
+        if (fieldValidations[name] && (typeof fieldValidations[name] === 'function' ? fieldValidations[name](value) : fieldValidations[name].test(value) || value === "")) {
             setValues((prevValues) => ({
                 ...prevValues,
                 [name]: value,
             }));
         }
-    }
+    };
+    /* EmailJS */
+    const form: any = React.useRef();
+
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_f8xxm9r', 'template_ou49bbo', form.current, 'U-Fs-m5q0TeNGw_wu')
+            .then((result) => {
+                console.log(result.text);
+                setValues({
+                    user_name: "",
+                    user_email: "",
+                    user_phone: "",
+                    message: "",
+                })
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+    /* Toast */
 
     return (
-        <div className="container-fluid p-0">
+        <div className={`container-fluid p-0 ${prefersDarkMode ? 'bg-dark' : ''}`}>
             {/* Botón de whatsapp*/}
             <div className="whatsapp-button">
                 <a href="https://wa.me/3317163400" target="_blank" rel="noopener noreferrer" className="btn btn-success">
@@ -144,16 +159,16 @@ const Plantilla_2: React.FC = () => {
                     <div className="w-75">
                         <h1 className='display-3 fw-bold mb-3'>Reparación de equipo dental</h1>
                         <h5 className='mb-3'>Obtén la mejor atención y reparación en equipos dentales</h5>
-                        <a type='button' href='#contactForm' className="btn btn-primary mb-3">Contáctanos</a>
+                        <a type='button' href='#contactForm' className={`btn mb-3 ${prefersDarkMode ? 'btn-dark' : 'btn-primary'}`}>Contáctanos</a>
                     </div>
                 </div>
             </section>
             {/* contactanos final */}
 
-            {/* sobre nosotros comienxo */}
-            <section className='w-100 row'>
+            {/* sobre nosotros comienzo */}
+            <section className="w-100 row">
                 <div className="col-lg-6">
-                    <div className="p-5">
+                    <div className={`p-5 ${prefersDarkMode ? 'text-light' : ''}`}>
                         <h2 className='display-6 fw-bold mb-3'>Sobre nosotros</h2>
                         <p className='lead'>
                             Bienvenidos a NDG, su aliado confiable en el mundo de la salud dental en Jalisco, México.
@@ -175,36 +190,94 @@ const Plantilla_2: React.FC = () => {
             {/* sobre nosotros final */}
 
             {/* servicios empieza */}
-            <section className='w-100 p-3' style={{ background: "#ECECEC" }}>
-                <h2 className='display-6 fw-bold mb-3 text-center'>Servicios</h2>
+            <section className='w-100 p-3' style={{ background: prefersDarkMode ? '#333333' : "#ECECEC" }}>
+                <h2 className={`display-6 fw-bold mb-5 text-center ${prefersDarkMode ? 'text-light' : ''}`}>Servicios</h2>
 
                 <div className="row mb-3" ref={sectionRef}>
-                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image2} className="card-img" width={300} height={320} alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Reparación</h4>
+                    <div className="row flex-wrap-reverse justify-content-around mb-5">
+                        {/* Tarjeta izquierda */}
+                        <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card">
+                                    <img src={image2} className="card-img" width={300} height={320} alt="..." />
+                                    <div className="card-img-overlay">
+                                        <h4 className="text-dark text-center fw-bold text-shadow"></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Tarjeta derecha */}
+                        <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
+                                    <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Reparación</h3>
+                                    <div className="card-body">
+                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Descubre la excelencia en nuestros servicios de reparación. Nuestra experiencia y la
+                                            satisfacción de nuestros clientes hablan por sí mismas. Estamos listos para resolver tus necesidades y responder a tus
+                                            preguntas. ¡Comunícate con nosotros hoy para obtener más información o para contratar nuestros servicios de reparación
+                                            confiables y de alta calidad!</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image3} className="card-img" width={300} height={320} alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Mantenimiento</h4>
+
+                    <div className="row flex-wrap justify-content-around mb-5">
+                        {/* Tarjeta derecha */}
+                        <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
+                                    <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Mantenimiento</h3>
+                                    <div className="card-body">
+                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Preserva el rendimiento óptimo de
+                                            tus equipos con nuestro servicio de mantenimiento de piezas.
+                                            Cuidamos cada detalle para garantizar un funcionamiento impecable.
+                                            Descubre la tranquilidad de contar con expertos que cuidan de tus
+                                            herramientas. ¡Contáctanos ahora para asegurar la durabilidad y
+                                            eficiencia de tus equipos!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Tarjeta izquierda */}
+                        <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card">
+                                    <img src={image3} className="card-img" width={300} height={320} alt="..." />
+                                    <div className="card-img-overlay">
+                                        <h4 className="text-dark text-center fw-bold text-shadow"></h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={`col-lg-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="card">
-                                <img src={image4} className="card-img" width={300} height={320} alt="..." />
-                                <div className="card-img-overlay">
-                                    <h4 className="text-dark text-center fw-bold text-shadow">Venta</h4>
+
+                    <div className="row flex-wrap-reverse justify-content-around">
+                        {/* Tarjeta izquierda */}
+                        <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card">
+                                    <img src={image4} className="card-img" width={300} height={320} alt="..." />
+                                    <div className="card-img-overlay">
+                                        <h4 className="text-dark text-center fw-bold text-shadow"></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Tarjeta derecha */}
+                        <div className={`col-lg-4 col-md-4 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
+                                    <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Venta</h3>
+                                    <div className="card-body">
+                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Explora la excelencia en tecnología dental
+                                            con nuestra selección de equipos de calidad. Nos enorgullece
+                                            ofrecer soluciones avanzadas y confiables para tu práctica
+                                            odontológica. Descubre la innovación, el rendimiento superior y
+                                            la durabilidad en cada equipo que ofrecemos. ¡Da un paso hacia el
+                                            futuro de la odontología con NDG! Contáctanos para adquirir los
+                                            mejores instrumentos que impulsarán tu éxito profesional.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -218,8 +291,8 @@ const Plantilla_2: React.FC = () => {
                 <div className="d-flex justify-content-center align-content-center">
                     <figure className='w-75'>
                         <blockquote className="blockquote">
-                            <p className='display-6'>
-                                Estoy muy agradecida con NDG por su servicio de reparación, mantenimiento y venta en equipos dentales.</p>
+                            <p className={`display-6 ${prefersDarkMode ? 'text-light' : ''}`}>
+                                Estoy muy agradecido con NDG por su servicio de reparación, mantenimiento y venta en equipos dentales.</p>
                         </blockquote>
                         <figcaption className="blockquote-footer">
                             José Jaime Guadalupe Castañeda Ruiz
@@ -231,7 +304,7 @@ const Plantilla_2: React.FC = () => {
 
             {/* galeria comienzo */}
             <section className='w-100 p-5 mb-3'>
-                <h2 className='display-6 fw-bold mb-4 text-center'>Galeria</h2>
+                <h2 className={`display-6 fw-bold mb-4 text-center ${prefersDarkMode ? 'text-light' : ''}`}>Galeria</h2>
 
                 <div className='d-flex justify-content-center align-content-center'>
                     <div id="carouselExampleIndicators" className="carousel slide w-75">
@@ -278,11 +351,11 @@ const Plantilla_2: React.FC = () => {
             {/* galeria final */}
 
             {/* ubicacion comienzo */}
-            <section className='w-100 p-3 m-0 row' style={{ background: "#ECECEC" }}>
+            <section className='w-100 p-3 m-0 row' style={{ background: prefersDarkMode ? '#333333' : "#ECECEC" }}>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <h2 className='display-6 fw-bold mb-3'>Ubicación</h2>
-                        <p className='lead'>
+                        <h2 className={`display-6 fw-bold mb-3 ${prefersDarkMode ? 'text-light' : ''}`}>Ubicación</h2>
+                        <p className={`lead ${prefersDarkMode ? 'text-light' : ''}`}>
                             C. Batalla de Cuahtla 2555, Río Verde, 44700 Guadalajara, Jal., México
                         </p>
                     </div>
@@ -296,11 +369,11 @@ const Plantilla_2: React.FC = () => {
             {/* ubicacion final */}
 
             {/* form comienzo */}
-            <section className='w-100 p-3 mb-3 row'>
+            <section id='contactForm' className='w-100 p-3 mb-3 row'>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <h2 className='display-6 mb-3'>Contactanos</h2>
-                        <p className='lead'>
+                        <h2 className={`display-6 mb-3 ${prefersDarkMode ? 'text-light' : ''}`}>Contactanos</h2>
+                        <p className={`lead ${prefersDarkMode ? 'text-light' : ''}`}>
                             Comunicate con nosotros utilizando el formulario de contacto a continuación.
                             Esperamos con interés escuchar de ti y ayudarte con tus necesidades.
                         </p>
@@ -308,40 +381,53 @@ const Plantilla_2: React.FC = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="p-5">
-                        <form id='contactForm' className="row g-3 needs-validation" onSubmit={handleSubmit}>
+                        <form ref={form}
+                            className="row g-3 needs-validation"
+                            onSubmit={sendEmail}>
                             <div className="col-md-4">
-                                <label htmlFor="name" className="form-label">Nombre</label>
+                                <label htmlFor="name" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Nombre</label>
                                 <input type="text"
                                     className="form-control"
                                     id="name"
-                                    name='name'
-                                    value={values.name}
+                                    name='user_name'
+                                    value={values.user_name}
                                     onChange={handleChange}
                                     placeholder='Ingresa tu nombre...' required />
                             </div>
                             <div className="col-md-4">
-                                <label htmlFor="celphone" className="form-label">Celular</label>
+                                <label htmlFor="email" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Email</label>
+                                <input type="email"
+                                    className="form-control"
+                                    id="email"
+                                    name='user_email'
+                                    value={values.user_email}
+                                    onChange={handleChange}
+                                    placeholder='Ingresa tu correo...' required />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="phone" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Celular</label>
                                 <input type="tel"
                                     className="form-control"
-                                    id="celphone"
-                                    name='celphone'
-                                    value={values.celphone}
+                                    id="phone"
+                                    name='user_phone'
+                                    value={values.user_phone}
                                     onChange={handleChange}
-                                    placeholder='Ingresa tu teléfono...' required />
+                                    placeholder='Ingresa tu numéro...' required />
                             </div>
                             <div className="form">
-                                <label htmlFor="message" className="form-label">Mensaje</label>
+                                <label htmlFor="message" className={`form-label ${prefersDarkMode ? 'text-light' : ''}`}>Mensaje</label>
                                 <textarea className="form-control"
+                                    id="message"
                                     name='message'
                                     value={values.message}
                                     onChange={handleChange}
-                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' style={{ height: 150 }} id="message" required></textarea>
+                                    style={{ height: 150 }}
+                                    placeholder='¡Queremos escucharte! Escribe tu mensaje...' required></textarea>
                             </div>
-                            {/* Botón de enviar */}
                             <div className="col-12 mt-3">
-                                <button className="btn btn-primary" type="submit">
-                                    Enviar
-                                </button>
+                                <input type="submit"
+                                    className={`btn ${prefersDarkMode ? 'btn-dark border border-white' : 'btn-primary'}`}
+                                    value="Enviar" />
                             </div>
                         </form>
                     </div>
