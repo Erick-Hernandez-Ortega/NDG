@@ -44,6 +44,7 @@ import galeria15 from './../../img/galeria/galeria 15.jpg';
 // @ts-ignore
 import whatsapp from "../../icons/whatsapp.ico"
 import emailjs from '@emailjs/browser';
+
 const Plantilla_2: React.FC = () => {
     const imagenes: Array<any> = [
         galeria2,
@@ -112,7 +113,7 @@ const Plantilla_2: React.FC = () => {
             user_name: /^[a-zA-Z\s]*$/,
             user_email: /[a-z0-9]+/,
             user_phone: /^\d{0,10}$/,
-            message: /[a-z0-9]+/,
+            message: /[A-Za-z0-9]+/,
             // Agrega otras validaciones si es necesario
         };
 
