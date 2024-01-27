@@ -10,11 +10,14 @@ import image2 from "./../../img/producto 1.jpg";
 import image3 from "./../../img/producto 2.jpg";
 // @ts-ignore
 import image4 from "./../../img/producto 3.jpg";
+// @ts-ignore
+// import image5 from "./../../img/image 1 up.jpg";
+
 // Galeria
 // @ts-ignore
-import galeria1 from './../../img/galeria/galeria 1.jpg';
+// import galeria1 from './../../img/galeria/galeria 1.jpg';
 // @ts-ignore
-import galeria2 from './../../img/galeria/galeria 2.jpg';
+// import galeria2 from './../../img/galeria/galeria 2.jpg';
 // @ts-ignore
 import galeria3 from './../../img/galeria/galeria 3.jpg';
 // @ts-ignore
@@ -36,7 +39,7 @@ import galeria11 from './../../img/galeria/galeria 11.jpg';
 // @ts-ignore
 import galeria12 from './../../img/galeria/galeria 12.jpg';
 // @ts-ignore
-import galeria13 from './../../img/galeria/galeria 13.jpg';
+// import galeria13 from './../../img/galeria/galeria 13.jpg';
 // @ts-ignore
 import galeria14 from './../../img/galeria/galeria 14.jpg';
 // @ts-ignore
@@ -58,7 +61,6 @@ const Plantilla_2: React.FC = () => {
         galeria10,
         galeria11,
         galeria12,
-        galeria13,
         galeria14,
         galeria15
     ];
@@ -117,6 +119,7 @@ const Plantilla_2: React.FC = () => {
             // Agrega otras validaciones si es necesario
         };
 
+        // @ts-ignore
         if (fieldValidations[name] && (typeof fieldValidations[name] === 'function' ? fieldValidations[name](value) : fieldValidations[name].test(value) || value === "")) {
             setValues((prevValues) => ({
                 ...prevValues,
@@ -258,7 +261,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={galeria2} className="card-img" width={300} height={320} alt="..." />
+                                    <img src={galeria15} className="card-img" width={300} height={320} alt="..." />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
