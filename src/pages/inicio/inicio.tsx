@@ -195,7 +195,9 @@ const Plantilla_2: React.FC = () => {
 
             {/* servicios empieza */}
             <section className='w-100 p-3' style={{ background: prefersDarkMode ? '#333333' : "#ECECEC" }}>
-                <h2 className={`display-6 fw-bold mb-5 text-center ${prefersDarkMode ? 'text-light' : ''}`}>Servicios</h2>
+                <h2 className={`display-6 fw-bold mb-5 text-center ${prefersDarkMode ? 'text-light' : ''}`}>
+                    Servicios en equipos de laboratorio dental y odontología
+                </h2>
 
                 <div className="row mb-3" ref={sectionRef}>
                     <div className="row flex-wrap-reverse justify-content-around mb-5">
@@ -216,10 +218,15 @@ const Plantilla_2: React.FC = () => {
                                 <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
                                     <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Reparación</h3>
                                     <div className="card-body">
-                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Descubre la excelencia en nuestros servicios de reparación. Nuestra experiencia y la
-                                            satisfacción de nuestros clientes hablan por sí mismas. Estamos listos para resolver tus necesidades y responder a tus
-                                            preguntas. ¡Comunícate con nosotros hoy para obtener más información o para contratar nuestros servicios de reparación
-                                            confiables y de alta calidad!</p>
+                                        <ul className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>
+                                            <li>Chuck automático</li>
+                                            <li>Micromotores de todo tipo (drill)</li>
+                                            <li>⁠Autoclave fe(esterilizador)</li>
+                                            <li>Vacum</li>
+                                            <li>Motor de alta y baja</li>
+                                            <li>Colector de polvo</li>
+                                            <li>Hornos de sinterizado, prensado, cocción</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -233,12 +240,15 @@ const Plantilla_2: React.FC = () => {
                                 <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
                                     <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Mantenimiento</h3>
                                     <div className="card-body">
-                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Preserva el rendimiento óptimo de
-                                            tus equipos con nuestro servicio de mantenimiento de piezas.
-                                            Cuidamos cada detalle para garantizar un funcionamiento impecable.
-                                            Descubre la tranquilidad de contar con expertos que cuidan de tus
-                                            herramientas. ¡Contáctanos ahora para asegurar la durabilidad y
-                                            eficiencia de tus equipos!</p>
+                                        <ul className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>
+                                            <li>Vibrador</li>
+                                            <li>Vapoteck</li>
+                                            <li>Colector de polvo</li>
+                                            <li>Piezas de baja, alta, contrangulo, micromotor, tipo e</li>
+                                            <li>⁠Ultrasonidos</li>
+                                            <li>Pieza recta</li>
+                                            <li>Puntradora</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -274,13 +284,19 @@ const Plantilla_2: React.FC = () => {
                                 <div className="card" style={{ background: prefersDarkMode ? '#333333' : "#ECECEC", border: 0 }}>
                                     <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Venta</h3>
                                     <div className="card-body">
-                                        <p className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>Explora la excelencia en tecnología dental
-                                            con nuestra selección de equipos de calidad. Nos enorgullece
-                                            ofrecer soluciones avanzadas y confiables para tu práctica
-                                            odontológica. Descubre la innovación, el rendimiento superior y
-                                            la durabilidad en cada equipo que ofrecemos. ¡Da un paso hacia el
-                                            futuro de la odontología con NDG! Contáctanos para adquirir los
-                                            mejores instrumentos que impulsarán tu éxito profesional.</p>
+                                        <ul className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>
+                                            <li>Micromotores</li>
+                                            <li>Motor de alta y  de baja</li>
+                                            <li>Vibrador</li>
+                                            <li>Motor de alta con sin fin</li>
+                                            <li>Encerador</li>
+                                            <li>Chuck automático</li>
+                                            <li>Chuck standar</li>
+                                            <li>Pedal</li>
+                                            <li>Piezas de mano</li>
+                                            <li>Vacum</li>
+                                            <li>Refacciones y accesorios para diversos equipos</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
