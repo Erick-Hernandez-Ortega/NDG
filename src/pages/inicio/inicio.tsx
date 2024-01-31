@@ -153,7 +153,7 @@ const Plantilla_2: React.FC = () => {
             {/* Botón de whatsapp*/}
             <div className="whatsapp-button">
                 <a href="https://wa.me/3317163400" target="_blank" rel="noopener noreferrer" className="btn btn-success">
-                    <img src={whatsapp} width={35} alt="" />
+                    <img src={whatsapp} width={35} alt="whatsapp icon" />
                 </a>
             </div>
             {/* Botón de whatsapp*/}
@@ -186,7 +186,7 @@ const Plantilla_2: React.FC = () => {
                 <div className="col-lg-6">
                     <div className="p-5">
                         <div className="w-100 d-flex justify-content-center align-items-center">
-                            <img src={image1} className='w-100 rounded-4' alt="..." />
+                            <img src={image1} className='w-100 rounded-4' alt="image1" />
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={image2} className="card-img" width={300} height={320} alt="..." />
+                                    <img src={image2} className="card-img" width={300} height={320} alt="image2" />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
@@ -257,7 +257,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={image3} className="card-img" width={300} height={320} alt="..." />
+                                    <img src={image3} className="card-img" width={300} height={320} alt="image3" />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
@@ -271,7 +271,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={galeria15} className="card-img" width={300} height={320} alt="..." />
+                                    <img src={galeria15} className="card-img" width={300} height={320} alt="image4" />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
