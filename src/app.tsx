@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './components/NavBar/NavBar.tsx'
-import Plantilla_2 from './pages/inicio/inicio.tsx';
+import Inicio from './pages/inicio/inicio.tsx';
 import { Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Plantilla_2 />} />
+        <Route path="/" element={<Inicio />} />
       </Routes>
     </>
   );
