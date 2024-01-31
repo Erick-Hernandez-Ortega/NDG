@@ -285,17 +285,19 @@ const Plantilla_2: React.FC = () => {
                                     <h3 className={`text-center fw-bold card-title align-self-start ms-3 ${prefersDarkMode ? 'text-light' : 'text-dark'}`}>Venta</h3>
                                     <div className="card-body">
                                         <ul className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>
-                                            <li>Micromotores</li>
-                                            <li>Motor de alta y  de baja</li>
-                                            <li>Vibrador</li>
-                                            <li>Motor de alta con sin fin</li>
-                                            <li>Encerador</li>
                                             <li>Chuck automático</li>
-                                            <li>Chuck standar</li>
+                                            <li>Chuck estándar</li>
+                                            <li>Vibrador</li>
+                                            <li>Vacuum</li>
+                                            <li>Motor de alta</li>
+                                            <li>Motor de baja</li>
+                                            <li>Micromotor laboratorio y contrángulo</li>
+                                            <li>Micromotor Tipo E</li>
                                             <li>Pedal</li>
                                             <li>Piezas de mano</li>
-                                            <li>Vacum</li>
-                                            <li>Refacciones y accesorios para diversos equipos</li>
+                                            <li>Encerador eléctrico</li>
+                                            <li>Accesorios</li>
+                                            <li>Refacciones</li>
                                         </ul>
                                     </div>
                                 </div>
