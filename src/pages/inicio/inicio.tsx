@@ -121,7 +121,7 @@ const Plantilla_2: React.FC = () => {
 
         // @ts-ignore
         if (fieldValidations[name] && (typeof fieldValidations[name] === 'function' ? fieldValidations[name](value) : fieldValidations[name].test(value) || value === "")) {
-            setValues((prevValues) => ({
+            setValues((prevValues: any) => ({
                 ...prevValues,
                 [name]: value,
             }));
@@ -134,8 +134,7 @@ const Plantilla_2: React.FC = () => {
         e.preventDefault();
 
         emailjs.sendForm('service_f8xxm9r', 'template_ou49bbo', form.current, 'U-Fs-m5q0TeNGw_wu')
-            .then((result) => {
-                console.log(result.text);
+            .then((result: any) => {
                 setValues({
                     user_name: "",
                     user_email: "",
@@ -153,7 +152,7 @@ const Plantilla_2: React.FC = () => {
             {/* Botón de whatsapp*/}
             <div className="whatsapp-button">
                 <a href="https://wa.me/3317163400" target="_blank" rel="noopener noreferrer" className="btn btn-success">
-                    <img src={whatsapp} width={35} alt="whatsapp icon" />
+                    <img src={whatsapp} width={35} alt="whatsapp icon" title='whatsapp icon' />
                 </a>
             </div>
             {/* Botón de whatsapp*/}
@@ -186,7 +185,7 @@ const Plantilla_2: React.FC = () => {
                 <div className="col-lg-6">
                     <div className="p-5">
                         <div className="w-100 d-flex justify-content-center align-items-center">
-                            <img src={image1} className='w-100 rounded-4' alt="image1" />
+                            <img src={image1} className='w-100 rounded-4' alt="image1" title="image1" />
                         </div>
                     </div>
                 </div>
@@ -205,7 +204,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={image2} className="card-img" width={300} height={320} alt="image2" />
+                                    <img src={image2} className="card-img" width={300} height={320} alt="image2" title="image2" />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
@@ -257,7 +256,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={image3} className="card-img" width={300} height={320} alt="image3" />
+                                    <img src={image3} className="card-img" width={300} height={320} alt="image3" title='image3' />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
@@ -271,7 +270,7 @@ const Plantilla_2: React.FC = () => {
                         <div className={`col-lg-4 col-md-6 ${servicesInView ? 'animated-service active' : 'animated-service'}`}>
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="card">
-                                    <img src={galeria15} className="card-img" width={300} height={320} alt="image4" />
+                                    <img src={galeria15} className="card-img" width={300} height={320} alt="image4" title='image4' />
                                     <div className="card-img-overlay">
                                         <h4 className="text-dark text-center fw-bold text-shadow"></h4>
                                     </div>
@@ -345,7 +344,7 @@ const Plantilla_2: React.FC = () => {
                         <div className="carousel-inner">
                             {imagenes.map((imagen: any, index: number) => (
                                 <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                                    <img src={imagen} className="d-block w-100" style={{ maxHeight: '300px', objectFit: 'contain' }} alt={`Imagen ${index + 1}`} />
+                                    <img src={imagen} className="d-block w-100" style={{ maxHeight: '300px', objectFit: 'contain' }} alt={`Imagen ${index + 1}`} title={`Imagen ${index + 1}`} />
                                 </div>
                             ))}
                         </div>

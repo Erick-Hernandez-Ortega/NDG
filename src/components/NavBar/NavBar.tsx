@@ -15,8 +15,7 @@ const NavBar: React.FC = () => {
         window.matchMedia('(prefers-color-scheme: dark)').matches
     );
 
-    const handleDarkModeChange = (e) => {
-        console.log('Dark mode change:', e.matches);
+    const handleDarkModeChange = (e: any) => {
         setPrefersDarkMode(e.matches);
     };
 
@@ -40,22 +39,22 @@ const NavBar: React.FC = () => {
                 <ul className='nav col-md-4 justify-content-end list-unstyled d-flex'>
                     <li className='ms-3'>
                         <a href="https://www.facebook.com/Reparacion.NDG13?mibextid=ZbWKwL" target='_blank'>
-                            <img src={facebook} width={35} alt="" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
+                            <img src={facebook} width={35} title='facebook' alt="facebook" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
                         </a>
                     </li>
                     <li className='ms-3'>
                         <a href="https://www.instagram.com/ndg20_21/?igsh=NGk3czZkOWFsZXJx" target='_blank'>
-                            <img src={instagram} width={35} alt="" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
+                            <img src={instagram} width={35} title="instagram" alt="instagram" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
                         </a>
                     </li>
                     <li className='ms-3'>
                         <a href="https://wa.me/3317163400" target='_blank'>
-                            <img src={whatsapp} width={35} alt="" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
+                            <img src={whatsapp} width={35} title="whats" alt="whats" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
                         </a>
                     </li>
                     <li className='ms-3'>
                         <a href="tel:3325390596" target='_blank'>
-                            <img src={telefono} width={35} alt="" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
+                            <img src={telefono} width={35} title="telefono" alt="telefono" style={{ filter: prefersDarkMode ? 'invert(1)' : 'invert(0)' }} />
                         </a>
                     </li>
 
