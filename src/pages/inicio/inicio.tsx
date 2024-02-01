@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toast } from 'bootstrap';
 import "./styles/main.css";
 import Footer from '../../components/Footer/footerComponent.tsx';
 // Imagenes
@@ -142,11 +143,16 @@ const Plantilla_2: React.FC = () => {
                     user_phone: "",
                     message: "",
                 })
+                // Muestra el Toast después de enviar el correo
+                const toastLiveExample = new Toast(document.getElementById('liveToast'));
+                toastLiveExample.show();
+
             }, (error) => {
                 console.log(error.text);
             });
     };
-    /* Toast */
+
+    // Función para mostrar el alert
 
     return (
         <div className={`container-fluid p-0 ${prefersDarkMode ? 'bg-dark' : ''}`}>
@@ -157,6 +163,19 @@ const Plantilla_2: React.FC = () => {
                 </a>
             </div>
             {/* Botón de whatsapp*/}
+            {/* Toast Container */}
+            <div className="toast-container position-fixed top-0 end-0 p-3">
+                {/* Toast Component */}
+                <div id="liveToast" className="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div className="d-flex">
+                        <div className="toast-body">
+                            Hemos recibido tu mensaje. ¡Gracias!
+                        </div>
+                        <button type="button" className="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            {/* Toast Container */}
             {/* contactanos comienzo */}
             <section className='image-section'>
                 <div className="overlay d-flex justify-content-center align-items-center">
