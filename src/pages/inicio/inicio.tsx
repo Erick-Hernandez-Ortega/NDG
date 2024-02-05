@@ -134,7 +134,7 @@ const Plantilla_2: React.FC = () => {
     const sendEmail = (e: any) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_f8xxm9r', 'template_ou49bbo', form.current, 'U-Fs-m5q0TeNGw_wu')
+        emailjs.sendForm('service_9qusynk', 'template_ijx17a9', form.current, 'AGJrHhK-FltrVSD4X')
             .then((result: any) => {
                 setValues({
                     user_name: "",
