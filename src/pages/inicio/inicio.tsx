@@ -238,7 +238,15 @@ const Plantilla_2: React.FC = () => {
                                     <div className="card-body">
                                         <ul className={`card-text align-self-start ${prefersDarkMode ? 'text-light' : ''}`}>
                                             <li>Chuck automático</li>
-                                            <li>Micromotor de laboratorio dental, contrangulo, tipo e , multi 600, ecko mil, entre otros de diversas marcas</li>
+                                            <li>Micromotor de laboratorio dental:
+                                                <ul>
+                                                    <li>Contrangulo</li>
+                                                    <li>Tipo e</li>
+                                                    <li>Multi 600</li>
+                                                    <li>Ecko mil</li>
+                                                    <li>Entre otros de diversas marcas</li>
+                                                </ul>
+                                             </li>
                                             <li>⁠Autoclave fe(esterilizador)</li>
                                             <li>Vacum</li>
                                             <li>Motor de alta y baja</li>
