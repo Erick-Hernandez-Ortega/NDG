@@ -214,7 +214,7 @@ const Plantilla_2: React.FC = () => {
             {/* servicios empieza */}
             <section className='w-100 p-3' style={{ background: prefersDarkMode ? '#333333' : "#ECECEC" }}>
                 <h2 className={`display-6 fw-bold mb-5 text-center ${prefersDarkMode ? 'text-light' : ''}`}>
-                    Servicios en equipos de laboratorio dental y odontología
+                    Servicios en equipos de laboratorio dental, odontología y podología
                 </h2>
 
                 <div className="row mb-3" ref={sectionRef}>
@@ -242,6 +242,8 @@ const Plantilla_2: React.FC = () => {
                                             <li>⁠Autoclave fe(esterilizador)</li>
                                             <li>Vacum</li>
                                             <li>Motor de alta y baja</li>
+                                            <li>Recortadora</li>
+                                            <li>Encerador</li>
                                             <li>Colector de polvo</li>
                                             <li>Hornos de sinterizado, prensado, cocción</li>
                                         </ul>
